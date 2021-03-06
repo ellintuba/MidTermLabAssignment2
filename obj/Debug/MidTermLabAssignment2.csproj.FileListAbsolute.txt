@@ -1,1 +1,6 @@
 c:\users\mahdi\documents\visual studio 2013\Projects\MidTermLabAssignment2\MidTermLabAssignment2\bin\Debug\MidTermLabAssignment2.exe.config
+C:\Users\Mahdi\documents\visual studio 2013\Projects\MidTermLabAssignment2\MidTermLabAssignment2\bin\Debug\MidTermLabAssignment2.exe
+C:\Users\Mahdi\documents\visual studio 2013\Projects\MidTermLabAssignment2\MidTermLabAssignment2\bin\Debug\MidTermLabAssignment2.pdb
+C:\Users\Mahdi\documents\visual studio 2013\Projects\MidTermLabAssignment2\MidTermLabAssignment2\obj\Debug\MidTermLabAssignment2.csprojResolveAssemblyReference.cache
+C:\Users\Mahdi\documents\visual studio 2013\Projects\MidTermLabAssignment2\MidTermLabAssignment2\obj\Debug\MidTermLabAssignment2.exe
+C:\Users\Mahdi\documents\visual studio 2013\Projects\MidTermLabAssignment2\MidTermLabAssignment2\obj\Debug\MidTermLabAssignment2.pdb

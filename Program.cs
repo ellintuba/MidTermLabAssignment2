@@ -21,7 +21,7 @@ namespace MidTermLabAssignment2
                 switch (inputCommand)
                 {
                     case "open":
-                        Console.WriteLine(inputCommand);
+                        openAccountMenu();
                         break;
                     case "account":
                         Console.WriteLine(inputCommand);
@@ -33,6 +33,19 @@ namespace MidTermLabAssignment2
                         break;
                 }
             }
+        }
+
+        static void openAccountMenu()
+        {
+            Console.WriteLine("Enter Details for Open New Account:");
+            Console.WriteLine("Name: ");
+            string name = Console.ReadLine();
+            Console.WriteLine("Date of Birth: (e.g. 10/22/1987) ");
+            DateTime dob = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Address: ");
+            string address = Console.ReadLine();
+            Account acc = new Account(name, dob, address);
+            acc.showDetails();
         }
     }
 }
