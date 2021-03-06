@@ -10,6 +10,11 @@ namespace MidTermLabAssignment2
     {
         static void Main(string[] args)
         {
+            dashboard();
+        }
+
+        static void dashboard()
+        {
             string inputCommand;
             while (true)
             {
@@ -24,18 +29,45 @@ namespace MidTermLabAssignment2
                         openAccountMenu();
                         break;
                     case "account":
-                        Console.WriteLine(inputCommand);
+                        performAccountMenu();
                         break;
                     case "quit":
-                        return;
+                        Environment.Exit(0);
+                        break;
                     default:
                         Console.WriteLine("Invalid Command. Please Enter open or account or quit as command");
                         break;
                 }
             }
         }
-
         static void openAccountMenu()
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter the command for :");
+                Console.WriteLine("Open a savings account");
+                Console.WriteLine("Open a checking account");
+                Console.WriteLine("Exit the application");
+                string opentAccountCommand = Console.ReadLine();
+                switch (opentAccountCommand)
+                {
+                    case "savings":
+                        openAccount("savings");
+                        break;
+                    case "checking":
+                        openAccount("checking");
+                        break;
+                    case "quit":
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Command. Please Enter savings or checking or quit as command");
+                        break;
+                }
+            }
+        }
+
+        static void openAccount(string type)
         {
             Console.WriteLine("Enter Details for Open New Account:");
             Console.WriteLine("Name: ");
@@ -44,8 +76,29 @@ namespace MidTermLabAssignment2
             DateTime dob = DateTime.Parse(Console.ReadLine());
             Console.WriteLine("Address: ");
             string address = Console.ReadLine();
-            Account acc = new Account(name, dob, address);
-            acc.showDetails();
+            Console.WriteLine("Starting Balance: ");
+            double balance =Double.Parse(Console.ReadLine());
+            if (type.Equals("savings"))
+            {
+                Savings sacc = new Savings(name, dob, address,balance);
+                sacc.showDetails();
+            }
+            else
+            {
+                Checking cacc = new Checking(name, dob, address, balance);
+                cacc.showDetails();
+            }
+            dashboard();
+        }
+        static void performAccountMenu()
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter the command for :");
+                Console.WriteLine("Open a savings account");
+                Console.WriteLine("Open a checking account");
+                Console.WriteLine("Exit the application");
+            }
         }
     }
 }
