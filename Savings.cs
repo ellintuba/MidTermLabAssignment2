@@ -8,7 +8,8 @@ namespace MidTermLabAssignment2
 {
     class Savings:Account
     {
-        public Savings(string name,DateTime dob,string address,double balance):base(name,dob,address,balance)
+        public Savings(string name, DateTime dob, string address, double balance, string type)
+            : base(name, dob, address, balance, type)
         {
             Console.WriteLine("Savings Account Created");
         }

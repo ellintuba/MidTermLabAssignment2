@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +9,8 @@ namespace MidTermLabAssignment2
 {
     class Program
     {
+        static List<Savings> SavingsAccounts = new List<Savings>();
+        static List<Checking> CheckingAccounts = new List<Checking>();
         static void Main(string[] args)
         {
             dashboard();
@@ -19,9 +22,9 @@ namespace MidTermLabAssignment2
             while (true)
             {
                 Console.WriteLine("Enter the command for :");
-                Console.WriteLine("Open a Bank account");
-                Console.WriteLine("Perform transactions for an account");
-                Console.WriteLine("Exit the application");
+                Console.WriteLine("Open a Bank account - open");
+                Console.WriteLine("Perform transactions for an account - account");
+                Console.WriteLine("Exit the application - quit");
                 inputCommand = Console.ReadLine();
                 switch (inputCommand)
                 {
@@ -45,9 +48,9 @@ namespace MidTermLabAssignment2
             while (true)
             {
                 Console.WriteLine("Enter the command for :");
-                Console.WriteLine("Open a savings account");
-                Console.WriteLine("Open a checking account");
-                Console.WriteLine("Exit the application");
+                Console.WriteLine("Open a savings account - savings");
+                Console.WriteLine("Open a checking account - checking");
+                Console.WriteLine("Exit the application - quit");
                 string opentAccountCommand = Console.ReadLine();
                 switch (opentAccountCommand)
                 {
@@ -80,24 +83,43 @@ namespace MidTermLabAssignment2
             double balance =Double.Parse(Console.ReadLine());
             if (type.Equals("savings"))
             {
-                Savings sacc = new Savings(name, dob, address,balance);
-                sacc.showDetails();
+                Savings sacc = new Savings(name, dob, address,balance,type);
+                SavingsAccounts.Add(sacc);
             }
             else
             {
-                Checking cacc = new Checking(name, dob, address, balance);
-                cacc.showDetails();
+                Checking cacc = new Checking(name, dob, address, balance,type);
+                CheckingAccounts.Add(cacc);
             }
             dashboard();
         }
         static void performAccountMenu()
         {
+            string inputCommand;
             while (true)
             {
                 Console.WriteLine("Enter the command for :");
-                Console.WriteLine("Open a savings account");
-                Console.WriteLine("Open a checking account");
-                Console.WriteLine("Exit the application");
+                Console.WriteLine("Make a deposit - deposit");
+                Console.WriteLine("Make a withdrawal - withdraw");
+                Console.WriteLine("Make a transfer - transfer");
+                Console.WriteLine("Show the number transactions and balance - show");
+                Console.WriteLine("Exit the application - quit");
+                inputCommand = Console.ReadLine();
+                switch (inputCommand)
+                {
+                    case "deposit":
+                        Console.WriteLine("Enter account no for deposit:");
+                        int accountNo=Int32.Parse(Console.ReadLine());
+                        break;
+                    case "withdraw": 
+                        break;
+                    case "quit":
+                    Environment.Exit(0);
+                    break;
+                    default:
+                    Console.WriteLine("Invalid Command. Please Enter valid command");
+                    break;
+                }
             }
         }
     }

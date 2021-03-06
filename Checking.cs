@@ -8,7 +8,8 @@ namespace MidTermLabAssignment2
 {
     class Checking:Account
     {
-        public Checking(string name,DateTime dob,string address,double balance):base(name,dob,address,balance)
+        public Checking(string name, DateTime dob, string address, double balance, string type)
+            : base(name, dob, address, balance, type)
         {
             Console.WriteLine("Checking Account Created");
         }

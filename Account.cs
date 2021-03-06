@@ -14,8 +14,9 @@ namespace MidTermLabAssignment2
         private string address;
         private double balance;
         private int transactions;
+        private string type;
 
-        public Account(string accountName, DateTime dob, string address,double balance)
+        public Account(string accountName, DateTime dob, string address,double balance,string type)
         {
             this.accountNo = ++accountNo;
             this.accountName = accountName;
@@ -23,6 +24,7 @@ namespace MidTermLabAssignment2
             this.address = address;
             this.balance = balance;
             this.transactions = 0;
+            this.type = type;
         }
 
         public void showDetails()
@@ -33,6 +35,7 @@ namespace MidTermLabAssignment2
             Console.WriteLine("Address: " + this.address);
             Console.WriteLine("Starting Balance: " + this.balance);
             Console.WriteLine("Transactions: " + this.transactions);
+            Console.WriteLine("Type: " + this.type);
         }
     }
 }
