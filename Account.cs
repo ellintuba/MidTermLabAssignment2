@@ -8,7 +8,7 @@ namespace MidTermLabAssignment2
 {
     class Account
     {
-        private int accountNo = 10000;
+        public int accountNo = 10000;
         private string accountName;
         private DateTime dob;
         private string address;
@@ -25,6 +25,17 @@ namespace MidTermLabAssignment2
             this.balance = balance;
             this.transactions = 0;
             this.type = type;
+        }
+
+        public void deposit(double amount)
+        {
+            this.balance = this.balance + amount;
+            this.transactions = this.transactions + 1;
+        }
+        public void withdraw(double amount)
+        {
+            this.balance = this.balance - amount;
+            this.transactions = this.transactions + 1;
         }
 
         public void showDetails()

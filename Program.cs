@@ -9,8 +9,7 @@ namespace MidTermLabAssignment2
 {
     class Program
     {
-        static List<Savings> SavingsAccounts = new List<Savings>();
-        static List<Checking> CheckingAccounts = new List<Checking>();
+        static List<Account> Accounts = new List<Account>();
         static void Main(string[] args)
         {
             dashboard();
@@ -84,12 +83,12 @@ namespace MidTermLabAssignment2
             if (type.Equals("savings"))
             {
                 Savings sacc = new Savings(name, dob, address,balance,type);
-                SavingsAccounts.Add(sacc);
+                Accounts.Add(sacc);
             }
             else
             {
                 Checking cacc = new Checking(name, dob, address, balance,type);
-                CheckingAccounts.Add(cacc);
+                Accounts.Add(cacc);
             }
             dashboard();
         }
@@ -110,9 +109,20 @@ namespace MidTermLabAssignment2
                     case "deposit":
                         Console.WriteLine("Enter account no for deposit:");
                         int accountNo=Int32.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter amount for deposit:");
+                        double amount=Double.Parse(Console.ReadLine());
+                        var account = Accounts.Find(x => x.accountNo == accountNo);
+                        account.deposit(amount);
                         break;
                     case "withdraw": 
+                        Console.WriteLine("Enter account no for withdraw:");
+                        int accountNo2=Int32.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter amount for withdraw:");
+                        double amount2=Double.Parse(Console.ReadLine());
+                        var account2 = Accounts.Find(x => x.accountNo == accountNo2);
+                        account2.deposit(amount2);
                         break;
+
                     case "quit":
                     Environment.Exit(0);
                     break;
