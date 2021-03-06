@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace MidTermLabAssignment2
 {
-    class Account
+    abstract class Account
     {
         public int accountNo = 10000;
-        private string accountName;
-        private DateTime dob;
-        private string address;
-        private double balance;
-        private int transactions;
-        private string type;
+        public string accountName;
+        public DateTime dob;
+        public string address;
+        public double balance;
+        public int transactions;
+        public string type;
 
         public Account(string accountName, DateTime dob, string address,double balance,string type)
         {
@@ -27,16 +27,9 @@ namespace MidTermLabAssignment2
             this.type = type;
         }
 
-        public void deposit(double amount)
-        {
-            this.balance = this.balance + amount;
-            this.transactions = this.transactions + 1;
-        }
-        public void withdraw(double amount)
-        {
-            this.balance = this.balance - amount;
-            this.transactions = this.transactions + 1;
-        }
+        public abstract void deposit(double amount);
+
+        public abstract void withdraw(double amount);
 
         public void showDetails()
         {

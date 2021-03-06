@@ -13,5 +13,20 @@ namespace MidTermLabAssignment2
         {
             Console.WriteLine("Savings Account Created");
         }
+        public override void deposit(double amount)
+        {
+            this.balance = this.balance + amount;
+            this.transactions = this.transactions + 1;
+        }
+        public override void withdraw(double amount)
+        {
+            if (this.balance - amount <= 0)
+            {
+                Console.WriteLine("Cannot make balance 0 of savings account");
+                return;
+            }
+
+            this.balance = this.balance - amount;
+        }
     }
 }

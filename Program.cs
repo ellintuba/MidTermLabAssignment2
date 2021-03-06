@@ -9,7 +9,8 @@ namespace MidTermLabAssignment2
 {
     class Program
     {
-        static List<Account> Accounts = new List<Account>();
+        static List<Savings> savingsAccountList = new List<Savings>();
+        static List<Checking> checkingAccountList = new List<Checking>();
         static void Main(string[] args)
         {
             dashboard();
@@ -83,12 +84,12 @@ namespace MidTermLabAssignment2
             if (type.Equals("savings"))
             {
                 Savings sacc = new Savings(name, dob, address,balance,type);
-                Accounts.Add(sacc);
+                savingsAccountList.Add(sacc);
             }
             else
             {
                 Checking cacc = new Checking(name, dob, address, balance,type);
-                Accounts.Add(cacc);
+                checkingAccountList.Add(cacc);
             }
             dashboard();
         }
@@ -107,20 +108,40 @@ namespace MidTermLabAssignment2
                 switch (inputCommand)
                 {
                     case "deposit":
+                        Console.WriteLine("Enter type of account for deposit: savings or checking");
+                        string type=Console.ReadLine();
                         Console.WriteLine("Enter account no for deposit:");
                         int accountNo=Int32.Parse(Console.ReadLine());
                         Console.WriteLine("Enter amount for deposit:");
                         double amount=Double.Parse(Console.ReadLine());
-                        var account = Accounts.Find(x => x.accountNo == accountNo);
-                        account.deposit(amount);
+                        if (type == "savings")
+                        {
+                            var account = savingsAccountList.Find(x => x.accountNo == accountNo);
+                            account.deposit(amount);
+                        }
+                        else if (type == "checking")
+                        {
+                            var account = checkingAccountList.Find(x => x.accountNo == accountNo);
+                            account.deposit(amount);
+                        }
                         break;
-                    case "withdraw": 
-                        Console.WriteLine("Enter account no for withdraw:");
+                    case "withdraw":
+                        Console.WriteLine("Enter type of account for withdraw: savings or checking");
+                        string type2=Console.ReadLine();
+                        Console.WriteLine("Enter account no for deposit:");
                         int accountNo2=Int32.Parse(Console.ReadLine());
-                        Console.WriteLine("Enter amount for withdraw:");
+                        Console.WriteLine("Enter amount for deposit:");
                         double amount2=Double.Parse(Console.ReadLine());
-                        var account2 = Accounts.Find(x => x.accountNo == accountNo2);
-                        account2.deposit(amount2);
+                        if (type2 == "savings")
+                        {
+                            var account = savingsAccountList.Find(x => x.accountNo == accountNo2);
+                            account.withdraw(amount2);
+                        }
+                        else if (type2 == "checking")
+                        {
+                            var account = checkingAccountList.Find(x => x.accountNo == accountNo2);
+                            account.withdraw(amount2);
+                        }
                         break;
 
                     case "quit":
