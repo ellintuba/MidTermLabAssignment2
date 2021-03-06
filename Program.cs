@@ -143,7 +143,18 @@ namespace MidTermLabAssignment2
                             account.withdraw(amount2);
                         }
                         break;
-
+                    case "show":
+                        Console.WriteLine("Enter account no for deposit:");
+                        int accountNoshow=Int32.Parse(Console.ReadLine());
+                        var accountShow = checkingAccountList.Find(x => x.accountNo == accountNoshow);
+                        if (accountShow == null)
+                        {
+                            var accountShow2 = savingsAccountList.Find(x => x.accountNo == accountNoshow);
+                            accountShow2.showDetails();
+                            break
+                        }
+                        accountShow.showDetails();
+                        break;
                     case "quit":
                     Environment.Exit(0);
                     break;
